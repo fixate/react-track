@@ -1,0 +1,51 @@
+{
+  "name": "react-track",
+  "version": "0.3.1",
+  "description": "react element tracking and animation",
+  "main": "lib",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gilbox/react-track.git"
+  },
+  "homepage": "https://github.com/gilbox/react-track/blob/latest/README.md",
+  "bugs": "https://github.com/gilbox/react-track/issues",
+  "authors": [
+    "Gil Birman"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^0.14",
+    "react-dom": "^0.14"
+  },
+  "dependencies": {
+    "babel": "^6.0.0",
+    "babel-core": "^6.0.0",
+    "babel-loader": "^6.0.0",
+    "raf": "^3.1.0"
+  },
+  "tags": [
+    "react",
+    "scroll"
+  ],
+  "keywords": [
+    "react",
+    "react-component",
+    "scroll",
+    "scrolling",
+    "animation"
+  ],
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "es2015",
+            "react",
+            "stage-0"
+          ]
+        }
+      ]
+    ]
+  }
+}
