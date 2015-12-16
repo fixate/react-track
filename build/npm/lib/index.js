@@ -7,6 +7,9 @@ var _createClass = (function () { function defineProperties(target, props) { for
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.TrackedDiv = exports.TrackDocument = exports.Track = exports.defaultRect = undefined;
+exports.createInjector = createInjector;
+exports.createTrackedComponent = createTrackedComponent;
 
 var _react = require('react');
 
@@ -28,7 +31,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var defaultRect = { top: 0, bottom: 0, left: 0, right: 0, width: 0, height: 0 };
+var defaultRect = exports.defaultRect = { top: 0, bottom: 0, left: 0, right: 0, width: 0, height: 0 };
 var identity = function identity(x) {
   return x;
 };
@@ -107,9 +110,9 @@ function createInjector(component) {
     formulas: _react2.default.PropTypes.array }, _class.defaultProps = { formulas: [identity], component: component }, _temp;
 }
 
-var Track = createInjector('div');
+var Track = exports.Track = createInjector('div');
 
-var TrackDocument = (function (_React$Component3) {
+var TrackDocument = exports.TrackDocument = (function (_React$Component3) {
   _inherits(TrackDocument, _React$Component3);
 
   function TrackDocument(props) {
@@ -183,7 +186,6 @@ var TrackDocument = (function (_React$Component3) {
 TrackDocument.propTypes = { children: _react2.default.PropTypes.func.isRequired,
   formulas: _react2.default.PropTypes.array };
 TrackDocument.defaultProps = { formulas: [identity] };
-
 function createTrackedComponent(component) {
   var _class4, _temp3;
 
@@ -236,13 +238,4 @@ function createTrackedComponent(component) {
     component: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.element, _react2.default.PropTypes.string]) }, _class4.defaultProps = { formulas: [identity], component: component }, _temp3;
 }
 
-var TrackedDiv = createTrackedComponent('div');
-
-exports.default = {
-  defaultRect: defaultRect,
-  createInjector: createInjector,
-  Track: Track,
-  TrackDocument: TrackDocument,
-  createTrackedComponent: createTrackedComponent,
-  TrackedDiv: TrackedDiv
-};
+var TrackedDiv = exports.TrackedDiv = createTrackedComponent('div');

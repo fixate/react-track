@@ -2,10 +2,10 @@ import React from 'react';
 import { findDOMNode } from 'react-dom';
 import raf from 'raf';
 
-const defaultRect = { top: 0, bottom: 0, left: 0, right: 0, width: 0, height: 0 };
+export const defaultRect = { top: 0, bottom: 0, left: 0, right: 0, width: 0, height: 0 };
 const identity = x => x;
 
-function createInjector(component) {
+export function createInjector(component) {
   return class Track extends React.Component {
     static propTypes = { ref: React.PropTypes.func,
                          children: React.PropTypes.func.isRequired,
@@ -47,9 +47,9 @@ function createInjector(component) {
   }
 }
 
-const Track = createInjector('div');
+export const Track = createInjector('div');
 
-class TrackDocument extends React.Component {
+export class TrackDocument extends React.Component {
   static propTypes = { children: React.PropTypes.func.isRequired,
                        formulas: React.PropTypes.array }
 
@@ -104,7 +104,7 @@ class TrackDocument extends React.Component {
   }
 }
 
-function createTrackedComponent(component) {
+export function createTrackedComponent(component) {
   return class Tracked extends React.Component {
     static propTypes = { children: React.PropTypes.func.isRequired,
                          formulas: React.PropTypes.array,
@@ -137,13 +137,4 @@ function createTrackedComponent(component) {
   }
 }
 
-const TrackedDiv = createTrackedComponent('div');
-
-export default {
-  defaultRect,
-  createInjector,
-  Track,
-  TrackDocument,
-  createTrackedComponent,
-  TrackedDiv
-};
+export const TrackedDiv = createTrackedComponent('div');
