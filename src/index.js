@@ -65,7 +65,11 @@ export class TrackDocument extends React.Component {
     let rafId;
 
     const update = () => {
-      this.setState({ rect: document.documentElement.getBoundingClientRect() });
+      const docRect = document.documentElement.getBoundingClientRect();
+      const bodyRect = document.body.getBoundingClientRect();
+      const rect = docRect.top <= bodyRect.top ? docRect : bodyRect;
+
+      this.setState({ rect });
     }
 
     const handleScroll = event => {
